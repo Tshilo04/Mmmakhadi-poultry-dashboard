@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MMMakhadi Poultry Farming Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; color: #333; }
+        header { background: #007BFF; padding: 10px; color: white; text-align: center; }
+        #kpis { display: flex; justify-content: space-around; padding: 20px; }
+        .kpi { background: white; border-radius: 5px; padding: 20px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        #charts, #slicers, #insights { margin: 20px; padding: 20px; background: white; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MMMakhadi Poultry Farming Dashboard</h1>
+    </header>
+    <section id="kpis">
+        <div class="kpi">
+            <h2>Total Birds</h2>
+            <p id="totalBirds">1500</p>
+        </div>
+        <div class="kpi">
+            <h2>Egg Production</h2>
+            <p id="eggProduction">1200 eggs/month</p>
+        </div>
+        <div class="kpi">
+            <h2>Feed Cost</h2>
+            <p id="feedCost">$500/month</p>
+        </div>
+    </section>
+    <section id="charts">
+        <h2>Production Overview</h2>
+        <canvas id="productionChart"></canvas>
+        <script>
+            const ctx = document.getElementById('productionChart').getContext('2d');
+            const productionChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'Egg Production',
+                        data: [300, 400, 350, 550],
+                        backgroundColor: 'rgba(0, 123, 255, 0.6)',
+                    }]
+                },
+                options: { responsive: true }
+            });
+        </script>
+    </section>
+    <section id="slicers">
+        <h2>Filter Data</h2>
+        <label for="month">Select Month:</label>
+        <select id="month">
+            <option value="January">January</option>
+            <option value="February">February</option>
+            <option value="March">March</option>
+        </select>
+    </section>
+    <section id="insights">
+        <h2>Insights</h2>
+        <p>Analyze the egg production trends over the weeks.</p>
+    </section>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>
